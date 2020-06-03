@@ -25,7 +25,12 @@
 var NAVTREE =
 [
   [ "Algoduino", "index.html", [
-    [ "algoduino", "md__r_e_a_d_m_e.html", null ],
+    [ "Algoduino", "md__r_e_a_d_m_e.html", [
+      [ "Documentation", "md__r_e_a_d_m_e.html#autotoc_md1", null ],
+      [ "Example", "md__r_e_a_d_m_e.html#autotoc_md2", null ],
+      [ "Security", "md__r_e_a_d_m_e.html#autotoc_md3", null ],
+      [ "License", "md__r_e_a_d_m_e.html#autotoc_md4", null ]
+    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],

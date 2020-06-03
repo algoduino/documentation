@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.18"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Algoduino: algoduino</title>
+<title>Algoduino: Algoduino</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Algoduino
-   &#160;<span id="projectnumber">0.1</span>
+   &#160;<span id="projectnumber">0.2</span>
    </div>
    <div id="projectbrief">An easy to use C++ Library to interact with the Algorand Blockchain.</div>
   </td>
@@ -84,13 +84,108 @@ $(document).ready(function(){initNavTree('md__r_e_a_d_m_e.html',''); initResizab
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">algoduino </div>  </div>
+<div class="title"><a class="el" href="class_algoduino.html">Algoduino</a> </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>An easy to use Library to interact with the Algorand Blockchain. </p>
+<div class="textblock"><p align="center"></p>
+<p><img src="https://github.com/algoduino/algoduino/blob/master/banner.png" alt="" class="inline"/> </p>
+<blockquote class="doxtable">
+<p>An easy to use Library to interact with the Algorand Blockchain. </p>
+</blockquote>
+<blockquote class="doxtable">
+<p>Lead Maintainer: <a href="https://github.com/TedNIVAN">Ted Nivan</a> </p>
+</blockquote>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Documentation</h1>
+<p>You can find installation instructions and detailed instructions on how to use this package at the <a href="https://algoduino.github.io/documentation/class_algoduino.html">dedicated documentation site</a>.</p>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Example</h1>
+<blockquote class="doxtable">
+<p>Get the information of a single transaction. </p>
+</blockquote>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;Algoduino.h&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code" href="class_algoduino.html">Algoduino</a> myAlgoduino = <a class="code" href="class_algoduino.html">Algoduino</a>(<span class="stringliteral">&quot;&lt;ssid&gt;&quot;</span>, <span class="stringliteral">&quot;&lt;password&gt;&quot;</span>, <span class="stringliteral">&quot;&lt;apiKey&gt;&quot;</span>, &lt;network&gt;);</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> setup()</div>
+<div class="line">{</div>
+<div class="line">  myAlgoduino.<a class="code" href="class_algoduino.html#adf1b49ec8fdb0300eb48681764fd8431">begin</a>();</div>
+<div class="line">  Serial.begin(115200);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> loop()</div>
+<div class="line">{</div>
+<div class="line">  <a class="code" href="struct_transaction_information.html">TransactionInformation</a> transactionInformation = myAlgoduino.<a class="code" href="class_algoduino.html#ae59b28f893da2a3a7f1e34848390d54d">getTransactionInformation</a>(<span class="stringliteral">&quot;&lt;txid&gt;&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">  String type = transactionInformation.type;</div>
+<div class="line">  String tx = transactionInformation.tx;</div>
+<div class="line">  String from = transactionInformation.from;</div>
+<div class="line">  <span class="keywordtype">int</span> fee = transactionInformation.fee;</div>
+<div class="line">  <span class="keywordtype">long</span> first_round = transactionInformation.first_round;</div>
+<div class="line">  <span class="keywordtype">long</span> last_round = transactionInformation.last_round;</div>
+<div class="line">  String noteb64 = transactionInformation.noteb64;</div>
+<div class="line">  <span class="keywordtype">long</span> round = transactionInformation.round;</div>
+<div class="line">  <span class="keywordtype">long</span> <span class="keywordtype">id</span> = transactionInformation.curxfer.id;</div>
+<div class="line">  <span class="keywordtype">int</span> amt = transactionInformation.curxfer.amt;</div>
+<div class="line">  String snd = transactionInformation.curxfer.snd;</div>
+<div class="line">  String rcv = transactionInformation.curxfer.rcv;</div>
+<div class="line">  String closeto = transactionInformation.curxfer.closeto;</div>
+<div class="line">  <span class="keywordtype">int</span> fromrewards = transactionInformation.fromrewards;</div>
+<div class="line">  String genesisID = transactionInformation.genesisID;</div>
+<div class="line">  String genesishashb64 = transactionInformation.genesishashb64;</div>
+<div class="line"> </div>
+<div class="line">  Serial.println(type);</div>
+<div class="line">  Serial.println(tx);</div>
+<div class="line">  Serial.println(from);</div>
+<div class="line">  Serial.println(fee);</div>
+<div class="line">  Serial.println(first_round);</div>
+<div class="line">  Serial.println(last_round);</div>
+<div class="line">  Serial.println(noteb64);</div>
+<div class="line">  Serial.println(round);</div>
+<div class="line">  Serial.println(<span class="keywordtype">id</span>);</div>
+<div class="line">  Serial.println(amt);</div>
+<div class="line">  Serial.println(snd);</div>
+<div class="line">  Serial.println(rcv);</div>
+<div class="line">  Serial.println(closeto);</div>
+<div class="line">  Serial.println(fromrewards);</div>
+<div class="line">  Serial.println(genesisID);</div>
+<div class="line">  Serial.println(genesishashb64);</div>
+<div class="line">  Serial.println(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">  delay(500);</div>
+<div class="line">}</div>
+</div><!-- fragment --><blockquote class="doxtable">
+<p>Output from Serial Monitor </p>
+</blockquote>
+<div class="fragment"><div class="line">pay</div>
+<div class="line">BIZJ4NW67NRL7OCLCO4DJKURDEUH6MWMWNUCNMDBFVUOBLVHUQRQ</div>
+<div class="line">PRICEP3G2F5L6ZG5WTJIAKEQW4OJJ3FM4XVFQDZI7M2VBTFVUHTTR2AU2U</div>
+<div class="line">1000</div>
+<div class="line">7051531</div>
+<div class="line">7052031</div>
+<div class="line">eyJwcmljZV9hbGdvX3VzZCI6MC4yNDM0NTczMjg1NTIyMzYzNywicHJpY2VfYWxnb19idGMiOjAuMDAwMDI1Mzc4MTM1NTAzNzEyNDQ4LCJsYXN0X3RyYWRlX2F0IjoiMjAyMC0wNi0wM1QyMTo0ODo0NC4yM1oiLCJ0aW1lc3RhbXAiOiIyMDIwLTA2LTAzVDIxOjQ4OjU4LjIzMFoifQ==</div>
+<div class="line">7051533</div>
+<div class="line">0</div>
+<div class="line">0</div>
+<div class="line">null</div>
+<div class="line">null</div>
+<div class="line">null</div>
+<div class="line">0</div>
+<div class="line">null</div>
+<div class="line">null</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md3"></a>
+Security</h1>
+<p>If you discover a security vulnerability within this package, please send an e-mail to <a href="#" onclick="location.href='mai'+'lto:'+'hel'+'lo'+'@al'+'go'+'dui'+'no'+'.co'+'m'; return false;">hello<span style="display: none;">.nosp@m.</span>@alg<span style="display: none;">.nosp@m.</span>oduin<span style="display: none;">.nosp@m.</span>o.co<span style="display: none;">.nosp@m.</span>m</a>. All security vulnerabilities will be promptly addressed.</p>
+<h1><a class="anchor" id="autotoc_md4"></a>
+License</h1>
+<p>[MIT](LICENSE) © <a href="https://www.algoduino.com/">Algoduino</a> </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclass_algoduino_html"><div class="ttname"><a href="class_algoduino.html">Algoduino</a></div><div class="ttdef"><b>Definition:</b> Algoduino.h:18</div></div>
+<div class="ttc" id="astruct_transaction_information_html"><div class="ttname"><a href="struct_transaction_information.html">TransactionInformation</a></div><div class="ttdef"><b>Definition:</b> AlgoduinoTypes.h:94</div></div>
+<div class="ttc" id="aclass_algoduino_html_ae59b28f893da2a3a7f1e34848390d54d"><div class="ttname"><a href="class_algoduino.html#ae59b28f893da2a3a7f1e34848390d54d">Algoduino::getTransactionInformation</a></div><div class="ttdeci">TransactionInformation getTransactionInformation(String txid)</div><div class="ttdoc">Get the transaction note from a single transaction.</div><div class="ttdef"><b>Definition:</b> Algoduino.cpp:208</div></div>
+<div class="ttc" id="aclass_algoduino_html_adf1b49ec8fdb0300eb48681764fd8431"><div class="ttname"><a href="class_algoduino.html#adf1b49ec8fdb0300eb48681764fd8431">Algoduino::begin</a></div><div class="ttdeci">void begin(void)</div><div class="ttdoc">Start the Wifi connection.</div><div class="ttdef"><b>Definition:</b> Algoduino.cpp:41</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
